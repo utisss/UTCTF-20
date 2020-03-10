@@ -1,0 +1,80 @@
+ld HL, 0012h; 21 12 00
+INC BC; 03
+ld BC, ff01h; 01 01 ff
+INC DE; 13
+ld A, (HL+); 2A
+INC DE; 13
+ld (BC), A; 02
+INC DE; 13
+NOP; 00
+JR -6; 18 F9
+whatever; 01
+
+1. start at 100
+2. remove breakpoint
+3. break at next point - 1
+4. issue interrupt
+5. check timer
+6. reset timer
+7. continue
+
+1221; 17448 clocks
+0300; 1784 clocks
+0101; 40 clocks
+13ff; 19188 clocks
+132A; 18336 clocks
+1302; 18176 clocks
+1800; 23288 clocks
+01F9; 736 clocks
+
+01F9
+1800
+1302
+132a
+13ff
+0101
+0300
+1221
+
+c3 50 01
+
+0000: 3E 00: LD A, 0
+0002: 47: LD B, A
+0003: 4F: LD C, A
+0004: 57: LD D, A
+0005: 5F: LD E, A
+0006: 67: LD H, A
+0007: 6F: LD L, A
+0008: 31 FC FF: LD SP, 0xfffa
+000b: FB: EI
+000c: 3E 10: LD A, 0x10
+000e: E0 FF: LD (0xffff), A
+0010: 18 1e: JR 030
+0012: utflag{dmg_cool_ciAkDGw5cf}
+	  utflag{REDACTED_REDACTED_....}
+0030: 3E c3: LD A, 0xc3
+0032: E0 FC: LDH (0xfffc), A
+0034: 3E 50: LD A, 0x50
+0036: E0 FD: LDH (0xfffd), A
+0038: 3E 01: LD A, 0x01
+003A: E0 FE: LDH (0xfffe), A
+003C: 3C: INC A
+003D: C3 00 01: JP 100
+
+Joypad interrupt handler
+0060: 0C: INC C
+0061: FB: EI
+0062: C3 00 01: JR 100
+
+0100: 00: NOP
+0101: C3 50 01: JP 0150
+104: 00...: NOP
+
+100-150: 00C35001 CEED6666 CC0D000B 03730083 000C000D 0008111F 8889000E DCCC6EE6 DDDDD999 BBBB6763 6E0EECCC DDDC999F BBB9333E 54455452 49530000 00000000 00000000 00000000 00000001 010A16BF //replace tetris with utctf
+
+0150: FE 01: CP 0x01
+0152: 20 01: JR NZ, 0155
+0154: C7: RST
+0155: 00...: NOP
+
+1ffd: C3 80 FF: JP FF80

@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+    web:
+        build: ./services/web
+        command: python manage.py run -h 0.0.0.0 -p 5006
+        ports:
+            - 5006:5006
+        env_file:
+            - ./.env
+        depends_on:
+            - db
+    db:
+        build: ./services/postgres
+        env_file:
+            - ./postgres.env

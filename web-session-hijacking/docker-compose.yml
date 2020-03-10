@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+    web:
+        build: ./web
+        command: /app/server
+        ports:
+            - 8080:8080
+        env_file:
+            - ./.env
+        depends_on:
+            - db
+    db:
+        build: ./postgres
+        env_file:
+            - ./postgres.env

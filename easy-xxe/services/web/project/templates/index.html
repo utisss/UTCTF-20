@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>How also shot web</title>
+  </head>
+  <body>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Spooky Items</h1>
+      <p class="lead text-muted">We are purveyors of the finest spooky items in
+      the world. Our curated masterpieces are seen all over the globe, click to
+      find the nearest location to you!</p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+<div class="row">
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+              <img src="/static/triangle.jpg" class="bd-placeholder-img
+              card-img-top" width="100%" height="225">
+            <div class="card-body">
+                <p class="card-text">The <b>Bermuda Triangle</b> is a mythical section of the Atlantic Ocean roughly bounded by Miami, Bermuda and Puerto Rico where dozens of ships and airplanes have disappeared.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <form class="locationForm" action="/location" method="POST">
+                        <input required type="hidden" name="productId" value="1">
+                  <button type="submit" class="btn btn-sm
+                      btn-outline-secondary">Check Nearest Location</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+              <img src="/static/tower.jpg" class="bd-placeholder-img
+              card-img-top" width="100%" height="225">
+            <div class="card-body">
+                <p class="card-text">No one knows how the <b> Tower of Pisa </b>
+                is able to stay upright, but our expert team of ghost hunters
+                are pretty sure paranormal activity has to do with it.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <form class="locationForm" action="/location" method="POST">
+                        <input required type="hidden" name="productId" value="2">
+                  <button type="submit" class="btn btn-sm
+                      btn-outline-secondary">Check Nearest Location</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+              <img src="/static/stonehenge.jpg" class="bd-placeholder-img
+              card-img-top" width="100%" height="225">
+            <div class="card-body">
+                <p class="card-text"><b>Stonehenge</b> was created by Aliens and
+                if you don't believe other truths like water is wet and the
+                earth is flat.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <form class="locationForm" action="/location" method="POST">
+                        <input required type="hidden" name="productId" value="3">
+                      <button type="submit" class="btn btn-sm
+                      btn-outline-secondary">Check Nearest Location</button>
+                    </form>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <span id="locationResult"></span>
+
+    </div>
+</div>
+
+  <script src="/static/js/xmlLocationCheckPayload.js"></script>
+  <script src="/static/js/locationCheck.js"></script>
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+enclave {
+
+    // includes
+    include "data.h"
+
+
+    // define ECALLs
+    trusted {
+
+        public int ecall_save_data(
+          [in,string] const char* flag,
+          [in,string] const char* password
+        );
+
+        public int ecall_get_flag(
+          [in, string] const char* username, 
+          [in, size=1024] const char* password, 
+          [in] int* pw_len,
+          [out, size=64] char* flag
+        );
+
+    };
+
+
+    // define OCALLs
+    untrusted {
+    
+        int ocall_save_data(
+            [in, size=sealed_size]const uint8_t* sealed_data, 
+            size_t sealed_size
+        );
+
+        int ocall_load_data(
+            [out, size=sealed_size]uint8_t* sealed_data, 
+            size_t sealed_size
+        );
+
+        int ocall_is_data(void);
+    };
+};

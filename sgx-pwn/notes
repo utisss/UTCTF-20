@@ -1,0 +1,5 @@
+simulated mode provides no software emulation of hardware protection
+
+intel release keys are not required due to flexible launch control
+
+connecting to foreign sgx enclave
