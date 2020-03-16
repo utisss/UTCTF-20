@@ -1,12 +1,12 @@
 ld HL, 0012h; 21 12 00
-INC BC; 03
+INC BC; 03 //padding
 ld BC, ff01h; 01 01 ff
-INC DE; 13
+INC DE; 13 //padding
 ld A, (HL+); 2A
-INC DE; 13
+INC DE; 13 //padding
 ld (BC), A; 02
-INC DE; 13
-NOP; 00
+INC DE; 13 //padding
+NOP; 00 //padding
 JR -6; 18 F9
 whatever; 01
 
@@ -18,15 +18,16 @@ whatever; 01
 6. reset timer
 7. continue
 
-1221; 17448 clocks
-0300; 1784 clocks
-0101; 40 clocks
-13ff; 19188 clocks
-132A; 18336 clocks
-1302; 18176 clocks
-1800; 23288 clocks
-01F9; 736 clocks
+1221
+0300
+0101
+13ff
+132A
+1302
+1800
+01F9
 
+in reverse:
 01F9
 1800
 1302
@@ -36,7 +37,20 @@ whatever; 01
 0300
 1221
 
-c3 50 01
+retrieved timings (this is the solution): 
+l 904
+r 23288
+l 18176
+r 18336
+l 19188
+r 40
+l 1784
+r 17276
+l 40000
+
+ROM disassembly: 
+
+c3 50 01: JP 0x150
 
 0000: 3E 00: LD A, 0
 0002: 47: LD B, A

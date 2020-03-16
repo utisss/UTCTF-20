@@ -47,7 +47,7 @@ bool showSecret(SDL_Window *gWindow, std::vector<Lane *> lanes, const char *path
     }
     //printHash(all);
 
-    decrypt_stream(secret, all, all + 16, numBlocks, ptext);
+    decrypt_pcbc(secret, all, all + 16, numBlocks, ptext);
 
     char *message = new char[16 * numBlocks + 50];
     snprintf(message, 16 * numBlocks + 50, "Congratulations! The secret message is: %s", ptext);
@@ -72,7 +72,7 @@ void createSecret(const char *path, const char *secret, uint8_t hash[32]){
 
     uint8_t *encrypted = new uint8_t[numBlocks * 16];
 
-    encrypt_stream(ptext, hash, hash + 16, numBlocks, encrypted);
+    encrypt_pcbc(ptext, hash, hash + 16, numBlocks, encrypted);
 
     FILE *fp = fopen(path, "w");
     fwrite(encrypted, 16, numBlocks, fp);

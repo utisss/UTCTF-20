@@ -15,7 +15,6 @@ Music::Music(const char *path)  {
     music = Mix_LoadMUS(path);
     if(!music) {
         printf("loading music: %s\n", Mix_GetError());
-        exit(1);
     }
 
     Mix_SetPostMix(mix_handler, this);
